@@ -1,0 +1,82 @@
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+        </style>
+    </head>
+    
+    <body>
+        <main id="main">
+        </main>
+        <script>
+            // document.createElement("div")
+            // const destination = document.getElementById("main");
+    
+            // const rollCount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            
+            // function roll() {
+            //     for (i = 0; i <= 1000; i++) {
+            //         let one = Math.ceil(Math.random() * 6);
+            //         let two = Math.ceil(Math.random() * 6);
+            //         let sum = one + two;
+            //         rollCount[sum] += 1;
+    
+            //     } 
+            //     console.log(rollCount);
+            //     for (let j = 2; j <= 12; j++) {
+            //         let newDiv = document.createElement("div");
+    
+    
+            //         var newText = document.createTextNode("#" + (j) + ": " +  rollCount[j]);
+            //         newDiv.appendChild(newText);
+    
+            //         destination.appendChild(newDiv);
+    
+            //     }
+            // }
+            // roll();
+            // console.log(roll());
+            // document.createElement("div")
+    
+            const units = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+            const tens = ["", "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+            const teens = ["", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
+                "nineteen"
+            ]
+            const scales = ["", "thousand", "million"];
+            const pushDigits = [0]
+
+            for (let i = 0; i < 110; i++){
+                switch(true){
+                    case (i < 10):
+                    console.log(units[i]);
+                    break;
+
+                    case (i == 10): 
+                    console.log(tens[1]);
+                    break;
+
+                    case (i > 10 && i < 20):
+                    console.log(teens[i-10]);
+                    break;
+                    
+                    case (i > 19 && i <= 99):
+                    console.log(tens[Math.floor(i/10)] + ' ' + units[i%10]);
+                    break;
+
+                    case (i > 99 && i < 999):
+                    var istring = i.toString();
+                    
+                    console.log(units[Number(istring[0])] + ' hundred' + tens[Number(istring[1])] + ' ' + units[Number(istring[2])]);
+                    break;
+                    
+                }
+            }
+    
+        
+        </script>
+    </body>
+    
+    </html>
